@@ -27,7 +27,7 @@ class RealWorld(BaseSim):
         super().__init__("real_world")
         self.robot = robot
 
-        self.has_imu = False # self.robot.config["general"]["has_imu"]
+        self.has_imu = False
         self.has_dynamixel = self.robot.config["general"]["has_dynamixel"]
 
         # TODO: Fix the mate directions in the URDF and remove the negated_motor_names
@@ -55,10 +55,6 @@ class RealWorld(BaseSim):
         os_type = platform.system()
 
         future_imu = None
-        # if self.has_imu:
-        #     from toddlerbot.sensing.IMU import IMU
-
-        #     future_imu = self.executor.submit(IMU)
 
         future_dynamixel = None
         if self.has_dynamixel:
